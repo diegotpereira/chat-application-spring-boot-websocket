@@ -1,11 +1,11 @@
 'use strict'
 
-var usernamePage = document.querySelector('#username-Page');
+var usernamePage = document.querySelector('#username-page');
 var chatPage = document.querySelector('#chat-page');
 var usernameForm = document.querySelector('#usernameForm');
 var messageForm = document.querySelector('#messageForm');
-var messageInput = document.querySelector('#messageInput');
-var messageArea = ducument.querySelector('#messageArea');
+var messageInput = document.querySelector('#message');
+var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
 
 var stompClient = null;
@@ -20,7 +20,7 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
-        var socket = new Socket('/ws');
+        var socket = new SockJS('/ws');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
@@ -39,7 +39,8 @@ function onConnected(){
 function onError(error) {
     
     connectingElement.textContent = 'Não foi possível conectar ao servidor WebSocket. Atualize esta página para tentar novamente!';
-    connectingElement.getElementsByClassName.color = 'red';
+    connectingElement.style.color = 'red';
 }
 
 usernameForm.addEventListener('submit', connect, true);
+messageForm.addEventListener('submit', sendMessage, true);
