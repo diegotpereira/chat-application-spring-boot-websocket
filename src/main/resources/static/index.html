@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Spring Boot Chat App</title>
+        <link rel="stylesheet" href="/css/main.css" />
+    </head>
+    <body>
+        <div id="username-page">
+            <div class="username-page-container">
+                <h1 class="title">Digite seu nome de usuário</h1>
+                <form id="usernameForm" name="usernameForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nome de Usuário" autocomplete="off" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="accent username-subimt">Iniciar Conversa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="chat-page" class="hidden">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>Spring Boot Chat</h2>
+                </div>
+                <div class="connecting">
+                    Conectando...
+                </div>
+
+                <ul id="messageArea">
+
+                </ul>
+
+                <form id="messageForm" name="messageForm" nameForm="messageForm">
+                    <div class="form-group">
+                        <div class="input-group clearfix">
+                            <input type="text" id="message" placeholder="Digite uma mensagem" autocomplete="off" class="form-control" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
