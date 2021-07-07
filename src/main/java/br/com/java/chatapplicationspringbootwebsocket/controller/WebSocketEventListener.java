@@ -7,9 +7,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.socket.messaging.SessionConnectEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
-
+import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import br.com.java.chatapplicationspringbootwebsocket.model.ChatMessage;
 
 @Component
@@ -21,7 +20,7 @@ public class WebSocketEventListener {
     private SimpMessageSendingOperations messagingTemplate;
 
     @EventListener
-    public void handleWebSocketConnectListener(SessionConnectEvent event) {
+    public void handleWebSocketConnectListener(SessionConnectedEvent event) {
         logger.info("Recebeu uma nova conexão web socket");
     }
 
@@ -38,7 +37,7 @@ public class WebSocketEventListener {
             chatMessage.setType(ChatMessage.MessageType.LEAVE);
             chatMessage.setSender(username);
 
-            messagingTemplate.convertAndSend("/topic/pubic", chatMessage);
+            messagingTemplate.convertAndSend("/topic/public", chatMessage);
         }
     }
 
