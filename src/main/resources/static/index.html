@@ -14,7 +14,7 @@
                         <input type="text" id="name" placeholder="Nome de Usuário" autocomplete="off" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="accent username-subimt">Iniciar Conversa</button>
+                        <button type="submit" class="accent username-submit">Iniciar Conversa</button>
                     </div>
                 </form>
             </div>
@@ -37,10 +37,14 @@
                     <div class="form-group">
                         <div class="input-group clearfix">
                             <input type="text" id="message" placeholder="Digite uma mensagem" autocomplete="off" class="form-control" />
+                            <button type="submit" class="primary">Enviar</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>
